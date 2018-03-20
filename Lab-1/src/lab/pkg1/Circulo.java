@@ -28,11 +28,11 @@ public class Circulo {
     public void getRaio(){
         System.out.println("o raio desse círculo é " + this.raio);
     }
-    public double calculaArea(){
+    public double Area(){
         return Math.PI*Math.pow(this.raio, 2);
     }
     
-    public double calculaPerimetro(){
+    public double Perimetro(){
         return 2*Math.PI*this.raio;
     }
     

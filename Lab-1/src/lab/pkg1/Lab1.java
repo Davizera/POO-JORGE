@@ -20,10 +20,10 @@ public class Lab1 {
         System.out.println("--------------Ponto---------------------------------------------");
         Ponto pontoAleatorio = new Ponto();
         double x,y;
-        System.out.printls("Entrada de dados:");
+        System.out.println("Entrada de dados:");
         x=Double.parseDouble(JOptionPane.showInputDialog("Informe o valor de x do ponto aleatório: "));
         y=Double.parseDouble(JOptionPane.showInputDialog("Informe o valor de y do ponto aleatório: "));
-        ponto.setPoints(x,y);
+        pontoAleatorio.setPoints(x,y);
         System.out.println("--------------RETÂNGULO---------------------------------------------");
         System.out.println("Entrada de dados:");
         double x1Ret,y1Ret,x2Ret,y2Ret;
@@ -32,6 +32,11 @@ public class Lab1 {
         x2Ret = Double.parseDouble(JOptionPane.showInputDialog("Informe x2 do retângulo: "));
         y2Ret = Double.parseDouble(JOptionPane.showInputDialog("Informe y2 do retângulo: "));
         Retangulo myRetan =new Retangulo(x1Ret,y1Ret,x2Ret,y2Ret);
+        if(myRetan.isIn(pontoAleatorio)){
+            System.out.println("O ponto está dentro do retângulo");
+        }else{
+            System.out.println("O ponto está fora do retângulo");
+        }
         myRetan.showPoints();
         System.out.println("A área desse retângulo é: "+ myRetan.Area());
         System.out.println("O perimetro desse retângulo é: "+ myRetan.Perimetro());
@@ -44,8 +49,14 @@ public class Lab1 {
         Circulo myCirc = new Circulo(centroX,centroY,raio);
         myCirc.showPoints();
         myCirc.getRaio();
-        double dist = myCirc.centro.distanciaEntrePontos(myRetan.pRet1);
-        System.out.println(dist);
+        if(myCirc.isIn(myCirc.centro.distanciaEntrePontos(pontoAleatorio))){
+            System.out.println("O ponto aleatório está dentro do círculo");
+        }else{
+            System.out.println("O ponto aleatório não está dentro do círculo");
+        }
+        System.out.println("A área do círculo é: "+myCirc.Area());
+        System.out.println("O perimetro do círculo é: "+myCirc.Perimetro());
+        System.out.println("A distancia entre o ponto aleatório e o centro do círculo é: "+myCirc.centro.distanciaEntrePontos(pontoAleatorio));
         
         
     }
