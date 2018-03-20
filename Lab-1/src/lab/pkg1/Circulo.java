@@ -21,9 +21,7 @@ public class Circulo {
     public void showPoints(){
         centro.getPoints();
     }
-    public double showSinglePoint(double pontoQualquer){
-        return centro.getSinglePoint(pontoQualquer);
-    }
+    
     public void setRaio(double raio){
         this.raio=raio;
     }

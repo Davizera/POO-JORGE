@@ -20,12 +20,39 @@ public class Retangulo {
     }
     
     public void showPoints(){
-        System.out.print("Esses são os primeiros ponto: ");
+        System.out.print("Esses é o primeiro ponto: ");
         pRet1.getPoints();
-        System.out.print("Esses são os segundo ponto: ");
+        System.out.print("Esses é o segundo ponto: ");
         pRet2.getPoints();
         
     }
-     
+    public boolean isIn(Ponto analisado){
+        double minX,minY,maxX,maxY;
+        if(this.pRet1.getX()<this.pRet2.getX()){
+            minX=this.pRet1.getX();
+            maxX=this.pRet2.getX();
+        }else{
+            minX=this.pRet2.getX();
+            maxX=this.pRet1.getX();
+        }
+        if(this.pRet1.getY()<this.pRet2.getY()){
+            minY=this.pRet1.getY();
+            maxY=this.pRet2.getY();
+        }else{
+            minY=this.pRet2.getY();
+            maxY=this.pRet1.getY();
+        }
+        if(analisado.getX()<minX || analisado.getX()>maxX || analisado.getY()<minY || analisado.getY()>maxY){
+            return false;
+        }
+        return true;
+    }   
     
+    public double Area(){
+        return Math.abs(this.pRet1.getX()-this.pRet2.getX())*Math.abs(this.pRet1.getY()-this.pRet2.getY());
+    }
+     
+    public double Perimetro(){
+        return 2*Math.abs(this.pRet1.getX()-this.pRet2.getX())+2*Math.abs(this.pRet1.getY()-this.pRet2.getY());
+    }
 }
